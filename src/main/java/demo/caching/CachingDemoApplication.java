@@ -6,7 +6,12 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 // We enable a standard cache. You can chose out of many different implementations!
-// See: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-caching.html
+// We configured redis in application.properties
+// 
+// $ docker run --name local-redis -d -p 6379:6379 redis:3
+// 
+// Use redis-cli to check that the keys were created for your cache.
+// When you run the test twice, it must fail!
 @EnableCaching
 public class CachingDemoApplication {
 
