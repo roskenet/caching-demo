@@ -25,7 +25,7 @@ public class CarCacheImpl implements CarCache {
     }
 
     @Override
-    public int getTimesCalled() {
+    public int getTimesCalledInternally() {
         return timesCalled;
     }
 }

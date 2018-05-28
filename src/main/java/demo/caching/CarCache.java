@@ -4,5 +4,5 @@ public interface CarCache {
 
     String getCar(String name);
 
-    int getTimesCalled();
+    int getTimesCalledInternally();
 }
