@@ -18,18 +18,23 @@ public class CachingDemoApplicationTests {
     @Test
     public void checkCache() {
 
-        // We call carCache twice... It should print only one LOG line!
+        // We call carCache multiple times... It should print only two LOG lines!
 
         String firstResult = carCache.getCar("BMW");
         String secondResult = carCache.getCar("BMW");
         String thirdResult = carCache.getCar("BMW");
+        
+        String fourthResult = carCache.getCar("Mercedes");
+        String fifthResult = carCache.getCar("Mercedes");
 
         // Of course it should be the same:
         assertThat(firstResult, is(secondResult));
         assertThat(secondResult, is(thirdResult));
+        
+        assertThat(fourthResult, is(fifthResult));
 
-        // but the code in the method got only called once!!!
-        assertThat(carCache.getTimesCalledInternally(), is(1));
+        // but the code in the method got only called twice!!!
+        assertThat(carCache.getTimesCalledInternally(), is(2));
 
     }
 
