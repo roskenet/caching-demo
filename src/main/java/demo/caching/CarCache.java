@@ -2,7 +2,7 @@ package demo.caching;
 
 public interface CarCache {
 
-    String getCar(String name);
+    String getCarInLowercase(String name);
 
     int getTimesCalledInternally();
 }

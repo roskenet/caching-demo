@@ -1,5 +1,7 @@
 package demo.caching;
 
+import java.util.Locale;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
@@ -14,14 +16,15 @@ public class CarCacheImpl implements CarCache {
     
     @Override
     @Cacheable("carCache")
-    public String getCar(String name) {
+    public String getCarInLowercase(String name) {
 
         // Here we call 42 different microservices and databases!
+        // For the difficult task to translate the name to lowercase.
         
         LOG.info("Call to external Service!");
         timesCalled++;
         
-        return name;
+        return name.toLowerCase(Locale.GERMANY);
     }
 
     @Override

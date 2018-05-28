@@ -20,17 +20,19 @@ public class CachingDemoApplicationTests {
 
         // We call carCache multiple times... It should print only two LOG lines!
 
-        String firstResult = carCache.getCar("BMW");
-        String secondResult = carCache.getCar("BMW");
-        String thirdResult = carCache.getCar("BMW");
+        String firstResult = carCache.getCarInLowercase("BMW");
+        String secondResult = carCache.getCarInLowercase("BMW");
+        String thirdResult = carCache.getCarInLowercase("BMW");
         
-        String fourthResult = carCache.getCar("Mercedes");
-        String fifthResult = carCache.getCar("Mercedes");
+        String fourthResult = carCache.getCarInLowercase("Mercedes");
+        String fifthResult = carCache.getCarInLowercase("Mercedes");
 
         // Of course it should be the same:
+        assertThat(firstResult, is("bmw"));
         assertThat(firstResult, is(secondResult));
         assertThat(secondResult, is(thirdResult));
         
+        assertThat(fourthResult, is("mercedes"));
         assertThat(fourthResult, is(fifthResult));
 
         // but the code in the method got only called twice!!!
