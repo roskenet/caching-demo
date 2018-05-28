@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redisservice
+  labels:
+    run: redisservice
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379 
+    protocol: TCP
+    nodePort: 30379
+  type: NodePort
