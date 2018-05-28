@@ -28,7 +28,7 @@ public class CachingDemoApplicationTests {
         assertThat(firstResult, is(secondResult));
         assertThat(secondResult, is(thirdResult));
 
-        // but our service got only called once!!!
+        // but the code in the method got only called once!!!
         assertThat(carCache.getTimesCalledInternally(), is(1));
 
     }
